@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Padaria Doce Baguete</title>
+  <meta name="description" content="Padaria Doce Baguete — Desde 2013 servindo com excelência e qualidade o melhor pão francês da região. Bairro Gruta de Lourdes." />
+  <!-- Favicons: substituir por seus ícones -->
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Google Fonts (substitua por import local se preferir) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fffdf8;
+      --cream:#f6efe6;
+      --brown:#7a4f2a;
+      --accent:#c78a3a;
+      --muted:#6b6b6b;
+      --radius:14px;
+      --max-width:1100px;
+      --shadow: 0 6px 20px rgba(30,30,30,0.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#1a1a1a}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px}
+
+    /* Header */
+    header{background:linear-gradient(180deg,var(--cream),transparent);backdrop-filter:saturate(120%);position:sticky;top:0;z-index:60}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(180deg,#fff,#f3e6d6);display:flex;align-items:center;justify-content:center;border:1px solid rgba(120,80,40,0.08);box-shadow:var(--shadow)}
+    .brand h1{font-family:'Playfair Display',serif;margin:0;font-size:20px;color:var(--brown)}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    .btn{background:var(--brown);color:white;padding:10px 14px;border-radius:10px;font-weight:600;display:inline-block}
+    .btn.secondary{background:transparent;color:var(--brown);border:1px solid rgba(122,79,42,0.12)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:40px 0}
+    .hero .copy h2{font-family:'Playfair Display',serif;font-size:38px;margin:0 0 12px;color:var(--brown)}
+    .hero .copy p{color:var(--muted);margin:0 0 18px}
+    .kpis{display:flex;gap:12px;margin-top:8px}
+    .kpi{background:#fff;padding:12px;border-radius:12px;box-shadow:var(--shadow);min-width:120px;text-align:center}
+    .kpi strong{display:block;color:var(--accent);font-size:20px}
+
+    .hero .hero-img{background:linear-gradient(180deg,#fff,#f3e6d6);border-radius:18px;box-shadow:var(--shadow);padding:12px;display:flex;align-items:center;justify-content:center}
+    .hero .hero-img img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+
+    /* Sections */
+    section{padding:36px 0;border-top:1px dashed rgba(120,80,40,0.06)}
+    h3{font-family:'Playfair Display',serif;color:var(--brown);margin:0 0 12px}
+    p.lead{color:var(--muted);margin:0}
+
+    /* Menu grid */
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+    .menu-item{background:white;padding:12px;border-radius:12px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center}
+    .menu-item img{width:84px;height:84px;border-radius:10px;object-fit:cover}
+    .menu-item h4{margin:0;font-size:16px;color:var(--brown)}
+    .price{margin-left:auto;font-weight:700;color:var(--accent)}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:10px;cursor:pointer}
+
+    /* Testimonials */
+    .testimonials{display:flex;gap:12px;overflow:hidden}
+    .testimonial{background:#fff;padding:18px;border-radius:12px;box-shadow:var(--shadow);min-width:280px}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .contact-card{background:white;padding:18px;border-radius:12px;box-shadow:var(--shadow)}
+    .map-embed{width:100%;height:220px;border-radius:10px;border:0}
+
+    footer{padding:24px 0;text-align:center;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+      nav ul{display:none}
+      .mobile-nav{display:flex}
+    }
+
+    /* Simple modal for images */
+    .modal{position:fixed;inset:0;background:rgba(10,10,10,0.6);display:flex;align-items:center;justify-content:center;padding:20px;z-index:200;visibility:hidden;opacity:0;transition:opacity .18s}
+    .modal.show{visibility:visible;opacity:1}
+    .modal-content{max-width:900px;width:100%;border-radius:12px;overflow:hidden}
+    .close-x{position:absolute;right:18px;top:18px;background:white;border-radius:50%;padding:6px;cursor:pointer}
+
+    /* design-spec visible area */
+    .design-specs{background:#fff8f0;padding:18px;border-radius:12px;margin-top:18px}
+    pre{background:#fff;padding:12px;border-radius:8px;overflow:auto}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden>
+          <!-- placeholder logo: trocar por SVG ou imagem real -->
+          <img src="/img/doce_baguete_logo.png" alt="Logo Doce Baguete" width="60" height="60">
+        </div>
+        <div>
+          <h1>Padaria Doce Baguete</h1>
+          <p style="text-align: center;">Desde 2013</p>
+        </div>
+      </div>
+
+      <nav aria-label="menu">
+        <ul>
+          <li><a href="#home">Início</a></li>
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn secondary" href="#contato">Como Chegar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <div class="copy">
+        <h2>O melhor pão francês da região — fresquinho todas as manhãs</h2>
+        <p class="lead">Desde 2013 servindo com excelência e qualidade no Bairro Gruta de Lourdes. Venha provar nossos pães, doces artesanais e refeições rápidas preparadas com amor.</p>
+        <div class="kpis">
+          <div class="kpi"><strong>2013</strong><small>Fundada</small></div>
+          <div class="kpi"><strong>+50</strong><small>Produtos</small></div>
+          <div class="kpi"><strong>5★</strong><small>Avaliações</small></div>
+        </div>
+        <div style="margin-top:18px;display:flex;gap:12px">
+          <a class="btn" href="#cardapio">Ver Cardápio</a>
+          <a class="btn secondary" id="btn-wpp" href="#pedido">Pedir pelo WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="hero-img" aria-hidden>
+        <!-- Trocar src por foto profissional -->
+        <img src="https://images.unsplash.com/photo-1546549039-0f9e3f0d9b74?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Pães frescos" onerror="this.style.opacity=.6;this.alt='Foto de pães'">
+      </div>
+    </section>
+
+    <section id="sobre">
+      <h3>Sobre a Padaria Doce Baguete</h3>
+      <p class="lead">Nossa missão é resgatar o sabor caseiro do pão francês e oferecer um atendimento acolhedor. Trabalhamos com ingredientes selecionados e processos que priorizam frescor e textura perfeita em cada fornada.</p>
+    </section>
+
+    <section id="cardapio">
+      <h3>Cardápio</h3>
+      <p class="lead">Alguns dos nossos destaques — atualize conforme seu menu.</p>
+
+      <div class="menu-grid">
+        <article class="menu-item">
+          <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Pão francês">
+          <div>
+            <h4>Pão Francês Tradicional</h4>
+            <small class="muted">Crosta crocante, miolo macio</small>
+          </div>
+          <div class="price">R$ 0,50</div>
+        </article>
+
+        <article class="menu-item">
+          <img src="https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Baguete">
+          <div>
+            <h4>Baguete Especial</h4>
+            <small class="muted">Perfeita para sanduíches</small>
+          </div>
+          <div class="price">R$ 6,00</div>
+        </article>
+
+        <article class="menu-item">
+          <img src="https://images.unsplash.com/photo-1563805042-7684f9b8662a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Doces">
+          <div>
+            <h4>Doces Artesanais</h4>
+            <small class="muted">Bolinho e doces do dia</small>
+          </div>
+          <div class="price">R$ 4,50</div>
+        </article>
+
+        <article class="menu-item">
+          <img src="https://images.unsplash.com/photo-1606312619340-3c2cb176a6f6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Café">
+          <div>
+            <h4>Café Expresso</h4>
+            <small class="muted">Dose única, aroma intenso</small>
+          </div>
+          <div class="price">R$ 3,00</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <h3>Galeria</h3>
+      <p class="lead">Imagens que mostram o cuidado em cada etapa.</p>
+      <div class="gallery" aria-hidden>
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Pães" data-full="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Vitrine" data-full="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img src="https://images.unsplash.com/photo-1546069901-eacef0df6022?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Equipe" data-full="https://images.unsplash.com/photo-1546069901-eacef0df6022?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Fachada" data-full="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+      </div>
+    </section>
+
+    <section id="depoimentos">
+      <h3>O que nossos clientes dizem</h3>
+      <div class="testimonials" id="testi-wrap">
+        <div class="testimonial">"Melhor pão francês do bairro. Atendimento ótimo!"<br><small>- Maria</small></div>
+        <div class="testimonial">"Sempre fresquinho. Recomendo para o café da manhã."<br><small>- João</small></div>
+        <div class="testimonial">"Os doces são irresistíveis."<br><small>- Ana</small></div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <h3>Contato e Localização</h3>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p class="lead">Padaria Doce Baguete — Desde 2013<br>Bairro Gruta de Lourdes</p>
+          <p><strong>Horário:</strong> Seg-Sex: 06:00 - 20:30 <br> Sábado: 06:00 - 20:00 <br> Domingos: 09:00 - 18:30</p>
+          <p><strong>Telefone:</strong> (82) 99382-3484</p>
+          <p><strong>WhatsApp:</strong> <a href="#pedido" id="wpp-number">(XX) XXXXX-XXXX</a></p>
+          <p><strong>Encomendas:</strong> Aceitamos bolos e salgados para festas — fale conosco.</p>
+
+          <form id="form-encomenda" style="margin-top:12px;display:grid;gap:8px">
+            <input name="nome" placeholder="Seu nome" required style="padding:10px;border-radius:8px;border:1px solid #efe1d2">
+            <input name="telefone" placeholder="Telefone ou WhatsApp" required style="padding:10px;border-radius:8px;border:1px solid #efe1d2">
+            <textarea name="msg" placeholder="Seu pedido / data" rows="3" style="padding:10px;border-radius:8px;border:1px solid #efe1d2"></textarea>
+            <button class="btn" type="submit">Enviar pedido</button>
+          </form>
+        </div>
+
+        <div class="contact-card">
+          <!-- Colocar iframe do Google Maps com coordenadas reais -->
+          <iframe class="map-embed" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d?" aria-label="Mapa da Padaria" title="Mapa" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>&copy; <span id="year"></span> <a href="https://www.instagram.com/padariadocebaguete/" target="_blank">Padaria Doce Baguete</a> — Todos os direitos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- Image modal -->
+  <div class="modal" id="img-modal" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-x" id="close-modal" aria-label="Fechar">✕</button>
+      <img id="modal-img" src="" alt="" style="width:100%;height:auto;display:block;">
+    </div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // WhatsApp CTA: substituir pelo número real com código do país/DDD
+    const wppNumber = '55DDXXXXXXXXX'; // Ex: 5511999999999
+    const wppBtn = document.getElementById('btn-wpp');
+    const wppLink = document.getElementById('wpp-number');
+    function getWppHref(){
+      const text = encodeURIComponent('Olá! Gostaria de fazer um pedido / encomenda.');
+      return 'https://wa.me/' + wppNumber + '?text=' + text;
+    }
+    if(wppBtn) wppBtn.href = getWppHref();
+    if(wppLink) wppLink.href = getWppHref();
+
+    // Simple gallery modal
+    document.querySelectorAll('.gallery img').forEach(img=>{
+      img.addEventListener('click',()=>{
+        const src = img.dataset.full || img.src;
+        const modal = document.getElementById('img-modal');
+        const modalImg = document.getElementById('modal-img');
+        modalImg.src = src;
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden','false');
+      });
+    });
+    document.getElementById('close-modal').addEventListener('click',()=>{
+      const modal = document.getElementById('img-modal');
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden','true');
+    });
+    document.getElementById('img-modal').addEventListener('click', (e)=>{
+      if(e.target.id === 'img-modal'){
+        e.currentTarget.classList.remove('show');
+        e.currentTarget.setAttribute('aria-hidden','true');
+      }
+    });
+
+    // Testimonials auto-scroll
+    const wrap = document.getElementById('testi-wrap');
+    let offset = 0;
+    setInterval(()=>{
+      offset = (offset + 1) % 3;
+      wrap.style.transform = 'translateX(' + (-offset * 300) + 'px)';
+      wrap.style.transition = 'transform .5s';
+    }, 4000);
+
+    // Form: apenas exemplo (não envia sem backend)
+    document.getElementById('form-encomenda').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Pedido enviado! Entraremos em contato via WhatsApp. (Simulação)');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
+
