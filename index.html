@@ -16,10 +16,10 @@
     <meta property="og:title" content="Padaria Doce Baguete" />
     <meta
       property="og:description"
-      content="O melhor pão francês da região — fresquinho todas as manhãs."
+      content="O melhor pão francês da região — fresquinho todas as manhãs."  
     />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#c78a3a" />
+    <meta name="theme-color" content="#C9A43A" />
 
     <!-- Preconnect / preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,16 +32,17 @@
 
     <style>
       :root {
-        --bg: #fffdf8;
-        --surface: #ffffff;
-        --cream: #f6efe6;
-        --brown: #7a4f2a;
-        --accent: #c78a3a;
-        --muted: #6b6b6b;
+        --bg: #0a0a0a;
+        --surface: #121212;
+        --cream: #1a1a1a;
+        --brown: #C9A43A;
+        --accent: #D8B85A;
+        --muted: #b8b8b8;
         --radius: 18px;
         --max-width: 1100px;
-        --shadow: 0 12px 30px rgba(30, 30, 30, 0.06);
-        --glass: rgba(255, 255, 255, 0.6);
+        --shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        --glass: rgba(10, 10, 10, 0.55);
+        --text: #f2f2f2;
       }
 
       * {
@@ -52,8 +53,8 @@
         height: 100%;
         margin: 0;
         font-family: Inter, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial;
-        background: linear-gradient(180deg, var(--bg), rgba(0, 0, 0, 0));
-        color: var(--text, #111);
+        background: var(--bg);
+        color: var(--text);
       }
       a {
         color: inherit;
@@ -82,6 +83,7 @@
         padding: 14px;
         border-radius: 14px;
         box-shadow: var(--shadow);
+        border: 1px solid rgba(200, 170, 80, 0.15);
       }
       .brand {
         display: flex;
@@ -92,17 +94,17 @@
         width: 64px;
         height: 64px;
         border-radius: 12px;
-        background: linear-gradient(180deg, #fff, #f3e6d6);
+        background: linear-gradient(180deg, #1b1b1b, #0f0f0f);
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid rgba(120, 80, 40, 0.06);
+        border: 1px solid rgba(200, 160, 70, 0.15);
       }
       .brand h1 {
         font-family: "Playfair Display", serif;
         margin: 0;
         font-size: 18px;
-        color: var(--brown);
+        color: var(--accent);
       }
       .brand p {
         margin: 0;
@@ -130,21 +132,21 @@
         font-weight: 600;
       }
       nav a:hover {
-        background: rgba(0, 0, 0, 0.03);
+        background: rgba(255, 255, 255, 0.05);
         color: var(--accent);
       }
       .btn {
-        background: var(--brown);
-        color: white;
+        background: var(--accent);
+        color: black;
         padding: 10px 14px;
-        border-radius: 12px;
+        border-radius: var(--radius);
         font-weight: 700;
         display: inline-block;
       }
       .btn.secondary {
         background: transparent;
-        color: var(--brown);
-        border: 1px solid rgba(122, 79, 42, 0.12);
+        color: var(--accent);
+        border: 1px solid rgba(200, 170, 80, 0.4);
       }
 
       /* Hamburger */
@@ -155,6 +157,7 @@
         font-size: 22px;
         padding: 8px;
         border-radius: 10px;
+        color: var(--text);
       }
 
       /* Hero */
@@ -169,7 +172,7 @@
         font-family: "Playfair Display", serif;
         font-size: 36px;
         margin: 0 0 12px;
-        color: var(--brown);
+        color: var(--accent);
       }
       .hero .copy p {
         color: var(--muted);
@@ -187,6 +190,7 @@
         box-shadow: var(--shadow);
         min-width: 120px;
         text-align: center;
+        border: 1px solid rgba(200, 170, 80, 0.15);
       }
       .kpi strong {
         display: block;
@@ -194,7 +198,7 @@
         font-size: 20px;
       }
       .hero .hero-img {
-        background: linear-gradient(180deg, #fff, #f3e6d6);
+        background: var(--cream);
         border-radius: 18px;
         box-shadow: var(--shadow);
         padding: 12px;
@@ -216,7 +220,7 @@
       }
       h3 {
         font-family: "Playfair Display", serif;
-        color: var(--brown);
+        color: var(--accent);
         margin: 0 0 12px;
       }
       p.lead {
@@ -255,7 +259,7 @@
       .menu-item h4 {
         margin: 0;
         font-size: 16px;
-        color: var(--brown);
+        color: var(--accent);
       }
       .price {
         margin-left: auto;
@@ -281,7 +285,7 @@
         transform: scale(1.03);
       }
 
-      /* Testimonials — Novo slider funcional */
+      /* Testimonials — slider */
       #testi-wrap {
         display: flex;
         gap: 20px;
@@ -291,11 +295,9 @@
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
       }
-
       #testi-wrap::-webkit-scrollbar {
         display: none;
       }
-
       .testimonial {
         min-width: 280px;
         flex: 0 0 80%;
@@ -307,6 +309,7 @@
         font-style: italic;
         font-size: 1.1rem;
         line-height: 1.5;
+        border: 1px solid rgba(200, 170, 80, 0.15);
       }
 
       @media (min-width: 768px) {
@@ -330,9 +333,11 @@
         padding: 18px;
         border-radius: 12px;
         box-shadow: var(--shadow);
+        border: 1px solid rgba(200, 170, 80, 0.15);
       }
+
       .map-card {
-        padding: 0 !important; /* remove espaço interno */
+        padding: 0 !important;
         display: flex;
         flex-direction: column;
       }
@@ -342,7 +347,7 @@
         border: 0;
         border-radius: 12px;
         display: block;
-        min-height: 320px; /* ajuste responsivo */
+        min-height: 320px;
       }
 
       footer {
@@ -383,6 +388,8 @@
         border-radius: 50%;
         padding: 6px;
         cursor: pointer;
+        color: black;
+        font-weight: bold;
       }
 
       /* Floating actions */
@@ -390,8 +397,8 @@
         position: fixed;
         bottom: 20px;
         right: 20px;
-        background: var(--brown);
-        color: white;
+        background: var(--accent);
+        color: black;
         padding: 12px 16px;
         border-radius: 999px;
         font-weight: 800;
@@ -399,7 +406,7 @@
         z-index: 150;
       }
 
-      /* Animations (scroll) */
+      /* Animations */
       [data-animate] {
         opacity: 0;
         transform: translateY(18px);
@@ -428,6 +435,7 @@
           display: block;
         }
       }
+
       @media (max-width: 600px) {
         .hero .copy h2 {
           font-size: 22px;
@@ -446,6 +454,7 @@
       }
     </style>
   </head>
+
   <body>
     <header>
       <div class="container nav">
@@ -510,15 +519,12 @@
 
           <div style="margin-top: 18px; display: flex; gap: 12px">
             <a class="btn" href="#cardapio">Ver Cardápio</a>
-            <a class="btn secondary" id="btn-wpp" href="#pedido"
-              >Pedir pelo WhatsApp</a
-            >
           </div>
         </div>
 
         <div class="hero-img" aria-hidden>
           <img
-            src="https://images.unsplash.com/photo-1546549039-0f9e3f0d9b74?q=80&w=1200&auto=format&fit=crop&s=placeholder"
+            src="/img/paes-exposicao.jpg"
             alt="Pães frescos"
             loading="lazy"
           />
@@ -598,11 +604,11 @@
       <section id="galeria" data-animate>
         <h3>Galeria</h3>
         <p class="lead">Imagens que mostram o cuidado em cada etapa.</p>
+        <br>
         <div class="gallery" aria-hidden>
           <img
-            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop&s=placeholder"
-            alt="Pães"
-            data-full="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop&s=placeholder"
+            src="/img/PHOTO-2025-11-28-14-11-41.jpg"
+            alt="refeicao"
             loading="lazy"
           />
           <img
@@ -660,12 +666,8 @@
               Domingos: 09:00 - 18:30
             </p>
             <p>
-              <strong>Telefone:</strong>
+              <strong>Telefone/WhatsApp:</strong>
               <a href="tel:+5582993823484">(82) 99382-3484</a>
-            </p>
-            <p>
-              <strong>WhatsApp:</strong>
-              <a id="wpp-number" href="#">(82) 99382-3484</a>
             </p>
             <form
               id="form-encomenda"
@@ -678,7 +680,9 @@
                 style="
                   padding: 10px;
                   border-radius: 8px;
-                  border: 1px solid #efe1d2;
+                  border: 1px solid rgba(200,170,80,0.35);
+                  background:#0f0f0f;
+                  color:white;
                 "
               />
               <input
@@ -688,7 +692,9 @@
                 style="
                   padding: 10px;
                   border-radius: 8px;
-                  border: 1px solid #efe1d2;
+                  border: 1px solid rgba(200,170,80,0.35);
+                  background:#0f0f0f;
+                  color:white;
                 "
               />
               <textarea
@@ -698,14 +704,16 @@
                 style="
                   padding: 10px;
                   border-radius: 8px;
-                  border: 1px solid #efe1d2;
+                  border: 1px solid rgba(200,170,80,0.35);
+                  background:#0f0f0f;
+                  color:white;
                 "
               ></textarea>
               <button class="btn" type="submit">Enviar Mensagem</button>
             </form>
           </div>
 
-          <!-- CARD DO MAPA — versão full height -->
+          <!-- CARD DO MAPA -->
           <div class="contact-card map-card">
             <iframe
               class="map-embed"
@@ -759,7 +767,7 @@
       </div>
     </div>
 
-    <!-- Floating WhatsApp + Theme toggle -->
+    <!-- Floating WhatsApp -->
     <a
       class="wpp-float"
       id="wppFloat"
@@ -772,19 +780,6 @@
     <script>
       // Year
       document.getElementById("year").textContent = new Date().getFullYear();
-
-      // WhatsApp number (formatted)
-      const wppNumber = "5582993823484";
-      const wppBtn = document.getElementById("btn-wpp");
-      const wppLink = document.getElementById("wpp-number");
-      function getWppHref() {
-        const text = encodeURIComponent(
-          "Olá! Gostaria de fazer um pedido / encomenda."
-        );
-        return "https://wa.me/" + wppNumber + "?text=" + text;
-      }
-      if (wppBtn) wppBtn.href = getWppHref();
-      if (wppLink) wppLink.href = getWppHref();
 
       // Gallery modal
       document.querySelectorAll(".gallery img").forEach((img) => {
@@ -809,16 +804,16 @@
         }
       });
 
-      // Form: placeholder (no backend)
+      // Form mock
       const form = document.getElementById("form-encomenda");
       if (form)
         form.addEventListener("submit", function (e) {
           e.preventDefault();
-          alert("Pedido recebido! Entraremos em contato via WhatsApp.");
+          alert("Mensagem enviada via WhatsApp!");
           this.reset();
         });
 
-      // Intersection Observer for animations
+      // Intersection Observer animations
       const animated = document.querySelectorAll("[data-animate]");
       const obs = new IntersectionObserver(
         (entries) => {
@@ -838,7 +833,6 @@
         hamb.classList.toggle("active");
       });
 
-      // Mobile refinements: adjust spacing and typography
       function adjustMobile() {
         if (window.innerWidth < 600) {
           document.documentElement.style.setProperty("--radius", "14px");
